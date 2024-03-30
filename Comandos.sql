@@ -147,5 +147,28 @@ WHERE nome ='Felipe'
 
 /* --------------------------------- */
 
-SELECT * email
-from cliente
+/* Usando delete */
+
+delete from cliente;
+
+/* esse comando DELETA TUDO */
+
+/* Uma dica, antes de usar um DELETE WHERE, use um SELECT para ver oq vc vai deletar antes
+e nao ocasionar nenhum problema */
+
+SELECT * from cliente WHERE nome = "Raquel";
+
+SELECT COUNT(*) from cliente; -- para contar quantos cadastros (6 cadastros)
+
+SELECT COUNT(*) from cliente -- Contando os cadastros com o mesmo nome q quero deletar (1)
+WHERE nome ="Raquel";
+
+delete from cliente -- Deletando o cadastro desejado
+WHERE nome ="Raquel"
+and email='raquel845@gmail.com';
+
+SELECT COUNT(*) from cliente;
+
+SELECT * from cliente;
+
+/*-----------------------------*/
