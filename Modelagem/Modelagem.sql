@@ -82,4 +82,15 @@ insert into cliente values(NULL, 'Pedro', 'M', 'pedro@gmail.com', '90231247');
 insert into cliente values(NULL, 'Roberta', 'F', 'roberta@gmail.com', '52338457');
 insert into cliente values(NULL, 'Carla', 'F', 'carla@gmail.com', '90223457');
 insert into cliente values(NULL, 'Maria', 'F', 'maria@gmail.com', '90123456');
-insert into cliente values(NULL, 'Bianca', 'F', 'NULL', '95323456');
+insert into cliente values(NULL, 'Eduarda', 'F', NULL, '95323358');
+
+desc endereco;
+
+insert into endereco values(NULL, 'Rua flamengo','Caxias','Bangu','RJ', 32);
+
+insert into endereco values(NULL, 'Rua faria','balde','Belo horizonte','MG', 2);
+insert into endereco values(NULL, 'Rua fernando','Lima','Sao Paulo','SP', 5);
+insert into endereco values(NULL, 'Rua Bernaldo','baixada','Rio de Janeiro','RJ', 1);
+insert into endereco values(NULL, 'Rua castilho','Trombone','Uberaba','MG', 3);
+insert into endereco values(NULL, 'Rua do ferro','castor','Vitoria','ES', 6);
+insert into endereco values(NULL, 'Rua montanha','monte','Bauru','SP', 4);
