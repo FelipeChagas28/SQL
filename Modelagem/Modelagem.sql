@@ -94,3 +94,39 @@ insert into endereco values(NULL, 'Rua Bernaldo','baixada','Rio de Janeiro','RJ'
 insert into endereco values(NULL, 'Rua castilho','Trombone','Uberaba','MG', 3);
 insert into endereco values(NULL, 'Rua do ferro','castor','Vitoria','ES', 6);
 insert into endereco values(NULL, 'Rua montanha','monte','Bauru','SP', 4);
+
+desc telefone;
+
+insert into telefone values(NULL, 'RES','78902347',3);
+insert into telefone values(NULL, 'CEL','90852345',5);
+insert into telefone values(NULL, 'COM','63454234',3);
+insert into telefone values(NULL, 'CEL','07895398',2);
+insert into telefone values(NULL, 'CEL','20356783',2);
+insert into telefone values(NULL, 'COM','90903465',4);
+insert into telefone values(NULL, 'RES','45364355',1);
+insert into telefone values(NULL, 'RES','23947858',2);
+
+SELECT * FROM telefone;
+
+/* SELECAO E PROJECAO */
+
+SELECT nome, sexo, email -- PROJECAO
+from cliente -- ORIGEM
+where sexo = 'F'; -- SELECAO
+
+/* NO SQL A PROJECAO E SEMPRE GARANTIDA, MAS A PROJECAO NAO */
+/* WHERE (FILTRO), VAI DEPENDER SE VC QUER FILTRAR OU NAO */
+
+/*juncao -> JOIN*/
+
+SELECT NOME, SEXO, BAIRRO, CIDADE -- PROJECAO
+FROM cliente -- ORIGEM
+	INNER JOIN endereco -- JUNCAO
+	ON IDCLIENTE = ID_CLIENTE
+WHERE SEXO = 'F'; -- SELECAO
+
+SELECT nome, sexo, email, tipo, numero
+from cliente
+	INNER JOIN telefone
+	on IDCLIENTE = ID_CLIENTE
+where tipo = "COM";
