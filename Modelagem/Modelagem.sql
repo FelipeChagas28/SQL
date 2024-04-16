@@ -130,3 +130,131 @@ from cliente
 	INNER JOIN telefone
 	on IDCLIENTE = ID_CLIENTE
 where tipo = "COM";
+
+/* trazer NOME, SEXO, BAIRRO, CIDADE, TIPO E NUMERO */
+
+SELECT cliente.nome, cliente.sexo, endereco.bairro, endereco.cidade, telefone.tipo, telefone.numero
+from cliente
+	INNER JOIN telefone
+	on cliente.IDCLIENTE = telefone.ID_CLIENTE
+	INNER JOIN endereco
+	on cliente.IDCLIENTE = endereco.ID_CLIENTE;
+	
+
+/* OUTRO JEITO DE FAZER A PONTERAMENTO */
+
+SELECT C.nome, C.sexo, E.bairro, E.cidade, T.tipo, T.numero
+from cliente C 
+	INNER JOIN telefone T
+	on C.IDCLIENTE = T.ID_CLIENTE
+	INNER JOIN endereco E
+	on C.IDCLIENTE = E.ID_CLIENTE;
+
+	-- SO DE COLOCAR O C NA FRENTE, VC JA DA O NOME PRA VARIAVEL -- 
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+	DML - DATA MANIPULATION LANGUAGE
+	DDL - DATA DEFINITION LANGUAGE
+	DCL - DATA CONTROL LANGUAGE
+	TCL - TRANSACTION CONTROL LANGUAGE
+
+
+*/
+
+
+
+
+
+/* COMANDOS DML */
+
+insert into cliente values(NULL, "Clara", "M", null, "23847964");
+insert into endereco values(NULL, "Bastao", "palmeira", "Rio de Janeiro", "RJ", 9);
+
+/* FILTROS */
+
+SELECT * from cliente
+	where sexo = "M";
+
+/* UPDATE */
+
+SELECT * from cliente
+	where IDCLIENTE = 9;
+
+UPDATE cliente
+	set sexo = "F"
+	where IDCLIENTE = 9;
+
+/* DELETE */
+
+insert into cliente values(null, "xxx", "f", null, "xxx");
+
+SELECT * from cliente
+	where IDCLIENTE = 10;
+
+DELETE from cliente
+	where IDCLIENTE = 10;
+
+
+
+
+/* DDL - DATA DEFINITION LANGUAGE */
+
+CREATE table produto(
+	IDPRODUTO INT PRIMARY KEY auto_increment,
+	NOME_PRODUTO VARCHAR(30) NOT NULL,
+	PRECO INT,
+	FRETE FLOAT(10,2) NOT NULL
+);
+
+/* ALTER TABLE */
+
+/* ALTERNANDO O NOME DE UMA COL*/
+
+ALTER TABLE produto
+change preco valor_unitario int NOT null; -- MUDANDO O NOME DE PRECO PRA VALOR UNITARIO
+
+alter table produto
+change valor_unitario valor_unitario int not null;
+
+desc produto;
+
+/* MODIFY - ALTERANDO O TIPO*/
+
+alter table produto
+MODIFY valor_unitario VARCHAR(50) not null;
+
+/* ADICIONANDO COLUNAS*/
+
+alter table produto
+add peso float(10,2) not null;
+
+/* APAGANDO UMA COLUNA*/
+
+alter table produto
+drop column peso;
+
+
+/* ADICIONANDO UMA COLUNA NA ORDEM ESPECIFICA */
+
+alter table produto
+add column peso float(10,2) not null
+after NOME_PRODUTO;
+
+
+alter table produto
+drop column peso;
+
+alter table produto
+add column peso float(10,2) not null
+first;
