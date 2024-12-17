@@ -1,0 +1,29 @@
+select C.nome, C.sexo, C.email, C.cpf, E.cidade, E.estado, T.tipo, T.numero
+	from cliente C
+
+inner join telefone T
+	on C.idcliente = T.id_cliente
+
+inner join endereco E
+	on C.idcliente = E.id_cliente
+
+where C.sexo = "F"; 
+
+
+-- Quantidade de homens
+
+select count(*) as Nº_Homens from cliente 
+	where sexo = "M";
+
+-- ids e emails das mulheres que moram no centrio do RJ e não tenham celular
+
+select C.idcliente, C.nome, C.email, E.estado, T.tipo, T.numero
+	from cliente C
+
+inner join endereco E
+	on C.idcliente = E.id_cliente
+
+inner join telefone T
+	on C.idcliente = T.id_cliente
+
+where C.sexo = "F" and E.estado = "RJ";
